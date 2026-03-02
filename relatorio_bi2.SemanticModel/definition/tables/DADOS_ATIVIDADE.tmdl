@@ -25,19 +25,19 @@ table DADOS_ATIVIDADE
 
 		annotation SummarizationSetBy = Automatic
 
-	column Column4
+	column 'Column4/Ano de lançamento'
 		dataType: string
 		lineageTag: 807a8b02-4947-45c6-8b01-aae251cafc77
 		summarizeBy: none
-		sourceColumn: Column4
+		sourceColumn: Column4/Ano de lançamento
 
 		annotation SummarizationSetBy = Automatic
 
-	column Column5
+	column 'Column5/ Duração'
 		dataType: string
 		lineageTag: 3b5a20a2-d407-4def-a2e9-006ba1065784
 		summarizeBy: none
-		sourceColumn: Column5
+		sourceColumn: Column5/ Duração
 
 		annotation SummarizationSetBy = Automatic
 
@@ -49,11 +49,11 @@ table DADOS_ATIVIDADE
 
 		annotation SummarizationSetBy = Automatic
 
-	column Column7
+	column 'Column7/ Nota no IMdB'
 		dataType: string
 		lineageTag: 8559ed34-5925-46c4-b3ab-bcd4c30cc5b2
 		summarizeBy: none
-		sourceColumn: Column7
+		sourceColumn: Column7/ Nota no IMdB
 
 		annotation SummarizationSetBy = Automatic
 
@@ -198,9 +198,10 @@ table DADOS_ATIVIDADE
 		source =
 				let
 				    Fonte = Csv.Document(File.Contents("C:\Users\berna\Downloads\DADOS_ATIVIDADE.csv"),[Delimiter=",", Columns=24, Encoding=65001, QuoteStyle=QuoteStyle.None]),
-				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}, {"Column15", type text}, {"Column16", type text}, {"Column17", type text}, {"Column18", type text}, {"Column19", type text}, {"Column20", type text}, {"Column21", type text}, {"Column22", type text}, {"Column23", type text}, {"Column24", type text}})
+				    #"Tipo Alterado" = Table.TransformColumnTypes(Fonte,{{"Column1", type text}, {"Column2", type text}, {"Column3", type text}, {"Column4", type text}, {"Column5", type text}, {"Column6", type text}, {"Column7", type text}, {"Column8", type text}, {"Column9", type text}, {"Column10", type text}, {"Column11", type text}, {"Column12", type text}, {"Column13", type text}, {"Column14", type text}, {"Column15", type text}, {"Column16", type text}, {"Column17", type text}, {"Column18", type text}, {"Column19", type text}, {"Column20", type text}, {"Column21", type text}, {"Column22", type text}, {"Column23", type text}, {"Column24", type text}}),
+				    #"Colunas Renomeadas" = Table.RenameColumns(#"Tipo Alterado",{{"Column4", "Column4/Ano de lançamento"}, {"Column5", "Column5/ Duração"}, {"Column7", "Column7/ Nota no IMdB"}})
 				in
-				    #"Tipo Alterado"
+				    #"Colunas Renomeadas"
 
 	annotation PBI_ResultType = Table
 

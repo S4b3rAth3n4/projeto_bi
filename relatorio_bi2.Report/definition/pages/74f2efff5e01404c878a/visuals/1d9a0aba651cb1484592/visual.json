@@ -1,0 +1,122 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.5.0/schema.json",
+  "name": "1d9a0aba651cb1484592",
+  "position": {
+    "x": 94.346504559270514,
+    "y": 55.440729483282681,
+    "z": 0,
+    "height": 532.03647416413378,
+    "width": 1164.2553191489362,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "barChart",
+    "query": {
+      "queryState": {
+        "Category": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "DADOS_ATIVIDADE"
+                    }
+                  },
+                  "Property": "Column2"
+                }
+              },
+              "queryRef": "DADOS_ATIVIDADE.Column2",
+              "nativeQueryRef": "Column2",
+              "active": true
+            }
+          ]
+        },
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Aggregation": {
+                  "Expression": {
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "DADOS_ATIVIDADE"
+                        }
+                      },
+                      "Property": "Column7/ Nota no IMdB"
+                    }
+                  },
+                  "Function": 5
+                }
+              },
+              "queryRef": "CountNonNull(DADOS_ATIVIDADE.Column7/ Nota no IMdB)",
+              "nativeQueryRef": "Contagem de Column7/ Nota no IMdB"
+            }
+          ]
+        }
+      },
+      "sortDefinition": {
+        "sort": [
+          {
+            "field": {
+              "Aggregation": {
+                "Expression": {
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "DADOS_ATIVIDADE"
+                      }
+                    },
+                    "Property": "Column7/ Nota no IMdB"
+                  }
+                },
+                "Function": 5
+              }
+            },
+            "direction": "Descending"
+          }
+        ],
+        "isDefaultSort": true
+      }
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "e783bc112a9bb1483c01",
+        "field": {
+          "Column": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "DADOS_ATIVIDADE"
+              }
+            },
+            "Property": "Column2"
+          }
+        },
+        "type": "Categorical"
+      },
+      {
+        "name": "04bfa26c73687398ba01",
+        "field": {
+          "Aggregation": {
+            "Expression": {
+              "Column": {
+                "Expression": {
+                  "SourceRef": {
+                    "Entity": "DADOS_ATIVIDADE"
+                  }
+                },
+                "Property": "Column7/ Nota no IMdB"
+              }
+            },
+            "Function": 5
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
